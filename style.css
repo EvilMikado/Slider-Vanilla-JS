@@ -1,0 +1,102 @@
+.page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to left top, rgb(55, 18, 186), rgb(132, 5, 174));
+}
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8b53ff;
+  width: 10.5rem;
+  height: 10.5rem;
+  border-radius: 50%;
+}
+.img img{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+  object-position: top center;
+  user-select: none;
+}
+.arrow{
+  width: 40px;
+  height: 40px;
+  background: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+.arrow:first-child{
+  left: -22px;
+  transform: translateY(-50%) rotateY(180deg);
+}
+.arrow:last-child{
+  right: -22px;
+}
+.wrapper{
+  max-width: 1200px;
+  width: calc(100% - 3rem);
+  position: relative;
+}
+.carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 0.7rem);
+  gap: 1rem;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel__card{
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 24rem;
+  list-style: none;
+  background: white;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.card__name{
+  font-weight: 500;
+}
+.card__profession{
+  color: #6a6d78;
+  font-size: 1.1rem;
+}
+
+.dragging{
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+@media screen and (max-width: 900px){
+  .carousel{
+    grid-auto-columns: calc((100% / 2) - 0.35rem);
+  }
+}
+
+@media screen and (max-width: 600px){
+  .carousel{
+    grid-auto-columns: 100%;
+  }
+}
