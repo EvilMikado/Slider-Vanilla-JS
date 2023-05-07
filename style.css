@@ -9,10 +9,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #8b53ff;
+  background: linear-gradient(to left top, rgb(94, 54, 239), rgb(132, 5, 174));
   width: 10.5rem;
   height: 10.5rem;
   border-radius: 50%;
+  margin-bottom: 1rem;
 }
 .img img{
   width: 10rem;
@@ -67,8 +68,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  height: 24rem;
+  height: 22rem;
   list-style: none;
   background: white;
   border-radius: 0.5em;
@@ -76,6 +76,7 @@
 }
 .card__name{
   font-weight: 500;
+  font-size: 1.375rem;
 }
 .card__profession{
   color: #6a6d78;
@@ -88,10 +89,13 @@
   scroll-behavior: auto;
   scroll-snap-type: none;
 }
+.no-smooth-scroll{
+  scroll-behavior: auto;
+}
 
 @media screen and (max-width: 900px){
   .carousel{
-    grid-auto-columns: calc((100% / 2) - 0.35rem);
+    grid-auto-columns: calc((100% / 2) - 0.5rem);
   }
 }
 
