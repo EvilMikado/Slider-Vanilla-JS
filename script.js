@@ -15,6 +15,16 @@ carouselChildrens.slice(0, cardPerView).forEach(card => {
   carousel.insertAdjacentHTML('beforeend', card.outerHTML)
 })
 
+const autoPlay = () =>{
+  if (window.innerWidth < 800) return
+  interval = setInterval(()=>{
+    carousel.scrollLeft += firstCardWidth
+  }, 2500)
+}
+
+autoPlay()
+
+
 arrowBtns.forEach(btn => {
   btn.addEventListener('click', ()=>{
     carousel.scrollLeft += btn.id === 'left' ? -firstCardWidth : firstCardWidth
@@ -50,15 +60,10 @@ const infiniteScroll = () =>{
   }
 }
 
-const autoPlay = () =>{
-  if (window.innerWidth < 800) return
-  interval = setInterval(()=>{
-    carousel.scrollLeft += firstCardWidth
-  }, 3000)
-}
 
 
- autoPlay()
+
+carousel.addEventListener('mouseout', autoPlay)
 carousel.addEventListener('mouseover', () => clearInterval(interval))
 carousel.addEventListener('mousemove', dragging)
 carousel.addEventListener('mousedown', dragStart)
